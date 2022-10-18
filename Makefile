@@ -6,21 +6,21 @@
 #    By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/16 13:15:26 by frgutier          #+#    #+#              #
-#    Updated: 2022/10/16 13:18:56 by frgutier         ###   ########.fr        #
+#    Updated: 2022/10/18 09:41:06 by frgutier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
 SRCS	= ft_printf.c \
-			ft_putchar.c \
-			ft_putnbr.c \
-			ft_num_nosign.c \
-			ft_punt_hexa.c \
-			ft_putstr.c \
+			print_char.c \
+			print_number.c \
+			print_number_unsigned.c \
+			print_hexa_pointer.c \
+			print_string.c \
 			ft_strlen.c \
-			ft_hexa_min.c \
-			ft_hexa_mayus.c
+			print_hexa_lower.c \
+			print_hexa_capital.c
 
 OBJS	= $(SRCS:.c=.o)
 

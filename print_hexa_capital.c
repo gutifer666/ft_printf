@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa_mayus.c                                    :+:      :+:    :+:   */
+/*   print_hexa_capital.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:22:34 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/17 09:29:48 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:43:44 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	puthexa_uns(char *bstr, unsigned int n, int c)
 	return (c);
 }
 
-int	ft_hexa_mayus(int n)
+int	print_hexa_capital(int n)
 {
 	int		let;
 

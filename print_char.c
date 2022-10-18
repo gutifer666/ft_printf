@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 09:05:44 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/17 09:06:38 by frgutier         ###   ########.fr       */
+/*   Created: 2022/10/17 09:00:50 by frgutier          #+#    #+#             */
+/*   Updated: 2022/10/18 09:03:19 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	print_char(int c)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-	{
-		if (write (1, "(null)", 6) != 6)
-			return (-1);
-		return (6);
-	}
-	while (s[i])
-	{
-		if (write(1, &s[i], 1) != 1)
-			return (-1);
-		i++;
-	}
-	return (i);
+	if (write (1, &c, 1) != 1)
+		return (-1);
+	return (1);
 }

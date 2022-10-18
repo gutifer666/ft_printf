@@ -6,7 +6,7 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:42:31 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/17 09:43:31 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:41:36 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,18 @@ int	ft_printf(const char *str, ...)
 static int	type_var(char c, va_list element)
 {
 	if (c == 'c')
-		return (ft_putchar(va_arg(element, int)));
+		return (print_char(va_arg(element, int)));
 	if (c == 's')
-		return (ft_putstr(va_arg(element, char *)));
+		return (print_string(va_arg(element, char *)));
 	if (c == 'p')
-		return (ft_punt_hexa(va_arg(element, void *)));
+		return (print_hexa_pointer(va_arg(element, void *)));
 	if (c == 'd' || c == 'i')
-		return (ft_putnbr(va_arg(element, int)));
+		return (print_number(va_arg(element, int)));
 	if (c == 'u')
-		return (ft_num_nosign(va_arg(element, unsigned int)));
+		return (print_number_unsigned(va_arg(element, unsigned int)));
 	if (c == 'x')
-		return (ft_hexa_min(va_arg(element, int)));
+		return (print_hexa_lower(va_arg(element, int)));
 	if (c == 'X')
-		return (ft_hexa_mayus(va_arg(element, int)));
+		return (print_hexa_capital(va_arg(element, int)));
 	return (0);
 }

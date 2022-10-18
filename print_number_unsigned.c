@@ -1,48 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   print_number_unsigned.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 09:12:10 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/17 09:13:05 by frgutier         ###   ########.fr       */
+/*   Created: 2022/10/17 09:19:07 by frgutier          #+#    #+#             */
+/*   Updated: 2022/10/18 09:25:17 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	int_min(int n)
-{
-	(void)n;
-	if (write(1, "-2147483648", 11) != 11)
-		return (-1);
-	return (11);
-}
-
-int	ft_putnbr(int n)
+unsigned int	print_number_unsigned(unsigned int num)
 {
 	int	let;
 
 	let = 0;
-	if (n == -2147483648)
-		return (int_min(n));
-	if (n < 0 && ++let)
+	if (num > 9)
 	{
-		if (write(1, "-", 1) != 1)
-			return (-1);
-		n = -n;
-	}
-	if (n > 9)
-	{
-		let += ft_putnbr(n / 10);
+		let = print_number_unsigned(num / 10);
 		if (let == -1)
 			return (-1);
-		n = n % 10;
+		num = num % 10;
 	}
-	if (n <= 9)
+	if (num <= 9)
 	{
-		if (ft_putchar (('0' + n)) == -1)
+		if (print_char (('0' + num)) == -1)
 			return (-1);
 		let++;
 	}

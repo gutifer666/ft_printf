@@ -6,7 +6,7 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 13:22:54 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/17 08:51:57 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:41:23 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int				ft_putchar(int c);
-int				ft_putnbr(int n);
-int				ft_putstr(char *s);
+int				print_char(int c);
+int				print_number(int n);
+int				print_string(char *s);
 int				ft_printf(const	char *str, ...);
-unsigned int	ft_num_nosign(unsigned int num);
-int				ft_punt_hexa(void *p);
+unsigned int	print_number_unsigned(unsigned int num);
+int				print_hexa_pointer(void *p);
 int				ft_strlen(char *s);
-int				ft_hexa_min(int num);
-int				ft_hexa_mayus(int num);
+int				print_hexa_lower(int num);
+int				print_hexa_capital(int num);
 
 #endif

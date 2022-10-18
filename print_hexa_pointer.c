@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_punt_hexa.c                                     :+:      :+:    :+:   */
+/*   print_hexa_pointer.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:37:25 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/17 09:45:59 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:32:21 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	hexa_pointer(char *bstr, unsigned long long n, int c)
 	return (c);
 }
 
-int	ft_punt_hexa(void *p)
+int	print_hexa_pointer(void *p)
 {
 	unsigned long long	pointer;
 	int					let;

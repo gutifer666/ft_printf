@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa_min.c                                      :+:      :+:    :+:   */
+/*   print_hexa_lower.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:30:35 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/17 09:33:07 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/18 09:36:51 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	puthexa_uns(char *bstr, unsigned int n, int c)
 	return (c);
 }
 
-int	ft_hexa_min(int n)
+int	print_hexa_lower(int n)
 {
 	int		let;
 
