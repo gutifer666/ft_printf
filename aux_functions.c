@@ -6,7 +6,7 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 08:16:26 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/20 08:17:27 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/20 08:43:55 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,14 @@ int	puthexa_uns(char *bstr, unsigned int n, int c)
 		c++;
 	}
 	return (c);
+}
+
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

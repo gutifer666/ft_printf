@@ -6,7 +6,7 @@
 #    By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/16 13:15:26 by frgutier          #+#    #+#              #
-#    Updated: 2022/10/20 08:13:16 by frgutier         ###   ########.fr        #
+#    Updated: 2022/10/20 08:44:46 by frgutier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ SRCS	= ft_printf.c \
 			print_number_unsigned.c \
 			print_hexa_pointer.c \
 			print_string.c \
-			ft_strlen.c \
 			print_hexa_lower.c \
 			print_hexa_capital.c \
 			aux_functions.c
