@@ -6,15 +6,14 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:12:10 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/18 09:11:43 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/20 09:08:19 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	int_min(int n)
+static int	int_min(void)
 {
-	(void)n;
 	if (write(1, "-2147483648", 11) != 11)
 		return (-1);
 	return (11);
@@ -26,7 +25,7 @@ int	print_number(int n)
 
 	let = 0;
 	if (n == -2147483648)
-		return (int_min(n));
+		return (int_min());
 	if (n < 0 && ++let)
 	{
 		if (write(1, "-", 1) != 1)
