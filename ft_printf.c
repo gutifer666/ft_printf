@@ -6,72 +6,13 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:42:31 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/18 09:41:36 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/23 13:25:55 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	type_var(char c, va_list element);
-
-static int	w_str_percent(char c, va_list element)
-{
-	int	let;
-
-	let = 0;
-	if (c != '%')
-	{
-		let = type_var(c, element);
-		if (let == -1)
-			return (-1);
-		return (let);
-	}
-	else
-	{
-		if (write (1, &c, 1) != 1)
-			return (-1);
-		return (1);
-	}
-}
-
-static	int	w_str(const char *str, va_list element, int let)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '%')
-		{
-			let = let + w_str_percent(str[i + 1], element);
-			if (let == -1)
-				return (-1);
-			i++;
-		}
-		else
-		{
-			if (write (1, &str[i], 1) != 1)
-				return (-1);
-			let++;
-		}
-		i++;
-	}
-	return (let);
-}
-
-int	ft_printf(const char *str, ...)
-{
-	va_list	element;
-	int		let;
-
-	let = 0;
-	va_start(element, str);
-	let = w_str(str, element, let);
-	va_end(element);
-	return (let);
-}
-
-static int	type_var(char c, va_list element)
+static int	checker(char c, va_list element)
 {
 	if (c == 'c')
 		return (print_char(va_arg(element, int)));
@@ -88,4 +29,61 @@ static int	type_var(char c, va_list element)
 	if (c == 'X')
 		return (print_hexa_capital(va_arg(element, int)));
 	return (0);
+}
+
+static int	w_str_percent(char c, va_list element)
+{
+	int	length;
+
+	length = 0;
+	if (c != '%')
+	{
+		length = checker(c, element);
+		if (length == -1)
+			return (-1);
+		return (length);
+	}
+	else
+	{
+		if (write (1, &c, 1) != 1)
+			return (-1);
+		return (1);
+	}
+}
+
+static	int	w_str(const char *str, va_list element, int length)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '%')
+		{
+			length = length + w_str_percent(str[i + 1], element);
+			if (length == -1)
+				return (-1);
+			i++;
+		}
+		else
+		{
+			if (write (1, &str[i], 1) != 1)
+				return (-1);
+			length++;
+		}
+		i++;
+	}
+	return (length);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	element;
+	int		length;
+
+	length = 0;
+	va_start(element, str);
+	length = w_str(str, element, length);
+	va_end(element);
+	return (length);
 }
