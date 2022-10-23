@@ -6,7 +6,7 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 13:22:54 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/20 08:31:06 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:19:42 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int				print_hexa_pointer(void *p);
 int				ft_strlen(char *s);
 int				print_hexa_lower(int num);
 int				print_hexa_capital(int num);
-int				puthexa_long(char *bstr, unsigned long long n, int c);
-int				puthexa_uns(char *bstr, unsigned int n, int c);
+int				puthexa_long(char *base_string, unsigned long long n, int len);
+int				puthexa_uns(char *base_string, unsigned int n, int len);
 #endif

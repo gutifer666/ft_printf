@@ -6,7 +6,7 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:30:35 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/20 08:24:18 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/23 17:59:38 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	print_hexa_lower(int n)
 {
-	int		let;
+	int		length;
 
-	let = 0;
+	length = 0;
 	if (n >= 0)
-		let = puthexa_long("0123456789abcdef", n, let);
+		length = puthexa_long("0123456789abcdef", n, length);
 	else if (n < 0)
-		let = puthexa_uns("0123456789abcdef", n, let);
-	return (let);
+		length = puthexa_uns("0123456789abcdef", n, length);
+	return (length);
 }

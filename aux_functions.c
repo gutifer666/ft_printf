@@ -6,56 +6,56 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 08:16:26 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/20 08:43:55 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:17:01 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	puthexa_long(char *bstr, unsigned long long n, int c)
+int	puthexa_long(char *base_string, unsigned long long n, int length)
 {
 	unsigned long long	b;
 
-	b = ft_strlen(bstr);
+	b = ft_strlen(base_string);
 	if (n >= b)
 	{
-		c = puthexa_long(bstr, n / b, c);
-		if (c == -1)
+		length = puthexa_long(base_string, n / b, length);
+		if (length == -1)
 			return (-1);
-		if (write (1, &bstr[n % b], 1) == -1)
+		if (write (1, &base_string[n % b], 1) == -1)
 			return (-1);
-		c++;
+		length++;
 	}
 	else if (n < b)
 	{
-		if (write (1, &bstr[n], 1) == -1)
+		if (write (1, &base_string[n], 1) == -1)
 			return (-1);
-		c++;
+		length++;
 	}
-	return (c);
+	return (length);
 }
 
-int	puthexa_uns(char *bstr, unsigned int n, int c)
+int	puthexa_uns(char *base_string, unsigned int n, int length)
 {
 	unsigned int	b;
 
-	b = ft_strlen(bstr);
+	b = ft_strlen(base_string);
 	if (n >= b)
 	{
-		c = puthexa_uns(bstr, n / b, c);
-		if (c == -1)
+		length = puthexa_uns(base_string, n / b, length);
+		if (length == -1)
 			return (-1);
-		if (write (1, &bstr[n % b], 1) == -1)
+		if (write (1, &base_string[n % b], 1) == -1)
 			return (-1);
-		c++;
+		length++;
 	}
 	else if (n < b)
 	{
-		if (write (1, &bstr[n], 1) == -1)
+		if (write (1, &base_string[n], 1) == -1)
 			return (-1);
-		c++;
+		length++;
 	}
-	return (c);
+	return (length);
 }
 
 int	ft_strlen(char *s)

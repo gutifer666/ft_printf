@@ -6,7 +6,7 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:12:10 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/20 09:08:19 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/23 17:53:14 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static int	int_min(void)
 
 int	print_number(int n)
 {
-	int	let;
+	int	length;
 
-	let = 0;
+	length = 0;
 	if (n == -2147483648)
 		return (int_min());
-	if (n < 0 && ++let)
+	if (n < 0 && ++length)
 	{
 		if (write(1, "-", 1) != 1)
 			return (-1);
@@ -34,8 +34,8 @@ int	print_number(int n)
 	}
 	if (n > 9)
 	{
-		let += print_number(n / 10);
-		if (let == -1)
+		length += print_number(n / 10);
+		if (length == -1)
 			return (-1);
 		n = n % 10;
 	}
@@ -43,7 +43,7 @@ int	print_number(int n)
 	{
 		if (print_char (('0' + n)) == -1)
 			return (-1);
-		let++;
+		length++;
 	}
-	return (let);
+	return (length);
 }
