@@ -6,7 +6,7 @@
 #    By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/16 13:15:26 by frgutier          #+#    #+#              #
-#    Updated: 2022/10/29 09:32:19 by frgutier         ###   ########.fr        #
+#    Updated: 2022/10/29 09:42:42 by frgutier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
 
-.c.o:
+.c.o:		ft_printf.h
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
