@@ -6,39 +6,39 @@
 /*   By: frgutier <frgutier@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:42:31 by frgutier          #+#    #+#             */
-/*   Updated: 2022/10/23 18:48:20 by frgutier         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:47:42 by frgutier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	checker(char c, va_list argument)
+static int	checker(char c, va_list ap)
 {
 	if (c == 'c')
-		return (print_char(va_arg(argument, int)));
+		return (print_char(va_arg(ap, int)));
 	if (c == 's')
-		return (print_string(va_arg(argument, char *)));
+		return (print_string(va_arg(ap, char *)));
 	if (c == 'p')
-		return (print_hexa_pointer(va_arg(argument, void *)));
+		return (print_hexa_pointer(va_arg(ap, void *)));
 	if (c == 'd' || c == 'i')
-		return (print_number(va_arg(argument, int)));
+		return (print_number(va_arg(ap, int)));
 	if (c == 'u')
-		return (print_number_unsigned(va_arg(argument, unsigned int)));
+		return (print_number_unsigned(va_arg(ap, unsigned int)));
 	if (c == 'x')
-		return (print_hexa_lower(va_arg(argument, int)));
+		return (print_hexa_lower(va_arg(ap, int)));
 	if (c == 'X')
-		return (print_hexa_capital(va_arg(argument, int)));
+		return (print_hexa_capital(va_arg(ap, int)));
 	return (0);
 }
 
-static int	write_str_percent(char c, va_list argument)
+static int	write_str_percent(char c, va_list ap)
 {
 	int	length;
 
 	length = 0;
 	if (c != '%')
 	{
-		length = checker(c, argument);
+		length = checker(c, ap);
 		if (length == -1)
 			return (-1);
 		return (length);
@@ -51,7 +51,7 @@ static int	write_str_percent(char c, va_list argument)
 	}
 }
 
-static	int	write_str(const char *str, va_list argument, int length)
+static	int	write_str(const char *str, va_list ap, int length)
 {
 	int		i;
 
@@ -60,7 +60,7 @@ static	int	write_str(const char *str, va_list argument, int length)
 	{
 		if (str[i] == '%')
 		{
-			length = length + write_str_percent(str[i + 1], argument);
+			length = length + write_str_percent(str[i + 1], ap);
 			if (length == -1)
 				return (-1);
 			i++;
@@ -78,12 +78,12 @@ static	int	write_str(const char *str, va_list argument, int length)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	argument;
+	va_list	ap;
 	int		length;
 
 	length = 0;
-	va_start(argument, str);
-	length = write_str(str, argument, length);
-	va_end(argument);
+	va_start(ap, str);
+	length = write_str(str, ap, length);
+	va_end(ap);
 	return (length);
 }
